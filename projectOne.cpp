@@ -191,13 +191,15 @@ void Delete(Book *&head, string title)
             {
                 head = cursor -> next;
                 delete cursor;
+                cursor = head;
                 cout << "Deleted" << endl;
-                return;
             }
+            else
+            {
             back -> next = cursor -> next;
             delete cursor;
             cout << "Deleted" << endl;
-            return;
+            }
         }
         else
         {
