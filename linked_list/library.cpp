@@ -86,10 +86,16 @@ void Like(Book *&head, string name)
             int j = 0;
             if(title[i] == name[j])
             {
+                bool same = true;
                 for(; j < name.length(); j++)
                 {
-                    if(title[i + j] == name[j])
+                    if(!(title[i + j] == name[j]))
                     {
+                        same = false;
+                    }
+                }
+                if(same)
+                {
                         cout << cursor -> data.title << " / ";
                         cout << cursor -> data.category << " / ";
                         if(cursor -> data.isBorrowed == 1)
@@ -97,8 +103,6 @@ void Like(Book *&head, string name)
                         else
                             cout << "The book is available" << endl;
                   found = true;
-                  break;
-                    }
                 }
             }
         }
@@ -297,16 +301,16 @@ void Excute(Book *&head, string command, string first, string second)
         Modify(head, first);
     else if(command == "help")
     {
-        cout << ">add [title] [category]" << endl;
-        cout << ">find title [title]" << endl;
-        cout << ">find category [category]" << endl;
-        cout << ">like [title]" << endl;
-        cout << ">borrow [title]" << endl;
-        cout << ">return [title]" << endl;
-        cout << ">delete [title]" << endl;
-        cout << ">modify [title]" << endl;
-        cout << ">destroy" << endl;
-        cout << ">display" << endl;
+        cout << ">add [title] [category]:   adds a new book." << endl;
+        cout << ">find title [title]:       finds a book with the exact title." << endl;
+        cout << ">find category [category]: finds books with the exact category." << endl;
+        cout << ">like [title]:             finds books with a similar title." << endl;
+        cout << ">borrow [title]:           borrows a book." << endl;
+        cout << ">return [title]:           returns a book." << endl;
+        cout << ">delete [title]:           deletes a book." << endl;
+        cout << ">modify [title]:           modifies a book." << endl;
+        cout << ">destroy:                  deletes all books." << endl;
+        cout << ">display:                  displays all books." << endl;
     }
 }
     
